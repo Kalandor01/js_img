@@ -106,7 +106,7 @@ function init()
     });
     //main image
     HTMLelement("article").innerHTML += "<h1>Image browser</h1>";
-    HTMLelement("article").innerHTML += `<div id="img_browser"><button onclick="change_img(false)"><</button><div id="curr_img>"><h2>${imgs[0].name}</h2><img src="${imgs[0].path}" alt="${imgs[0].name}"><p>Ár: ${imgs[0].price}Ft</p></div><button onclick="change_img()">></button></div>`;
+    HTMLelement("article").innerHTML += `<div id="img_browser"><button onclick="change_img(false)"><</button><div id="curr_img"><h2>${imgs[0].name}</h2><img src="${imgs[0].path}" alt="${imgs[0].name}"><p>Ár: ${imgs[0].price}Ft</p></div><button onclick="change_img()">></button></div>`;
     //galery
     //base
     HTMLelement("article").innerHTML += "<h1>Galéria</h1>";
