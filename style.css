@@ -1,0 +1,36 @@
+
+article>h1 {
+    text-align: center;
+}
+
+#galery {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#galery .image_div {
+    flex: 0 0 auto;
+    width: 33%;
+}
+
+.image_div>* {
+    text-align: center;
+}
+
+#img_browser {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#img_browser>* {
+    flex: 0 0 auto;
+    width: 33%;
+}
+
+#img_browser>* {
+    text-align: center;
+}
+
+img {
+    width: 100%;
+}
