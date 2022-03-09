@@ -20,11 +20,18 @@ article>h1 {
 #img_browser {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 #img_browser>* {
     flex: 0 0 auto;
     width: 33%;
+}
+
+#img_browser>button {
+    width: 10%;
+    height: 200px;
 }
 
 #curr_img>* {

@@ -106,7 +106,7 @@ function init()
     });
     //main image
     HTMLelement("article").innerHTML += "<h1>Image browser</h1>";
-    HTMLelement("article").innerHTML += `<div id="img_browser"><button onclick="change_img(false)"><</button><div id="curr_img"><h2>${imgs[0].name}</h2><img src="${imgs[0].path}" alt="${imgs[0].name}"><p>Ár: ${imgs[0].price}Ft</p></div><button onclick="change_img()">></button></div>`;
+    HTMLelement("article").innerHTML += `<div id="img_browser"><button id="btn_left"><</button><div id="curr_img"><h2>${imgs[0].name}</h2><img src="${imgs[0].path}" alt="${imgs[0].name}"><p>Ár: ${imgs[0].price}Ft</p></div><button id="btn_right">></button></div>`;
     //galery
     //base
     HTMLelement("article").innerHTML += "<h1>Galéria</h1>";
@@ -121,19 +121,28 @@ function init()
 }
 
 var image_index = 0;
+document.getElementById("btn_left").addEventListener("click", img_minus);
+HTMLelement("#btn_right").addEventListener("click", img_plus);
 
-function change_img(direction=true)
+function img_plus()
 {
-    //let image_index = Math.floor(Math.random*imgs.length)
-    if(direction)
-        image_index += 1;
-    else
-        image_index -= 1
+    image_index += 1;
+    change_img(image_index)
+}
+
+function img_minus()
+{
+    image_index -= 1
+    change_img(image_index)
+}
+
+function change_img(image_index)
+{
     if(image_index > imgs.length - 1)
         image_index = 0;
     else if(image_index < 0)
         image_index = imgs.length - 1;
-    console.log(image_index)
+    //let image_index = Math.floor(Math.random*imgs.length)
     HTMLelement("#curr_img>h2").innerHTML = `${imgs[image_index].name}`;
     HTMLelement("#curr_img>img").src = `${imgs[image_index].path}`;
     HTMLelement("#curr_img>img").alt = `${imgs[image_index].name}`;
