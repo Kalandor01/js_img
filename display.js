@@ -6,33 +6,28 @@ function HTMLelement(name){
 
 let imgs = [
     {
-        path: "img/img_1.png",
-        name: "kamera",
+        path: "img/img_1.jpg",
+        name: "kecske-cica",
         price: 1521
     },
     {
-        path: "img/img_2.png",
-        name: "cicanő",
-        price: 1521
-    },
-    {
-        path: "img/img_3.png",
-        name: "pillangó",
+        path: "img/img_2.jpg",
+        name: "erdőút",
         price: 1542
     },
     {
-        path: "img/img_4.png",
-        name: "yoda",
+        path: "img/img_3.jpg",
+        name: "erdőút 2",
         price: 14
     },
     {
-        path: "img/img_5.png",
-        name: "narancs",
+        path: "img/img_4.jpg",
+        name: "mező falu",
         price: 5477
     },
     {
-        path: "img/img_6.png",
-        name: "galaxis",
+        path: "img/img_5.jpg",
+        name: "mező nap",
         price: 69585
     }
 ]
@@ -73,7 +68,7 @@ function van_cica()
 
 let write_out = [];
 //átlag
-write_out.push("A képek árainak az átlaga " + Math.round(atlagar()));
+write_out.push("A képek árainak az átlaga " + Math.round(atlagar()) + "Ft.");
 //>10.000
 if(van_draga())
     write_out.push("Van 10.000-nél drágább kép.");
@@ -117,31 +112,32 @@ function init()
     });
     //document.getElementById("message").innerHTML="<h1>Cím</h1>";
     //document.getElementById("message").innerHTML+="<h1>Képek</h1>";
-    //document.getElementById("message").innerHTML+=`<img src="img/img_6.png" alt="galaxy">`;
+    //document.getElementById("message").innerHTML+=`<img src="img/img_6.jpg" alt="galaxy">`;
+
+    HTMLelement("#btn_left").addEventListener("click", img_minus);
+    HTMLelement("#btn_right").addEventListener("click", img_plus);
 }
 
 var image_index = 0;
-document.getElementById("btn_left").addEventListener("click", img_minus);
-HTMLelement("#btn_right").addEventListener("click", img_plus);
 
 function img_plus()
 {
     image_index += 1;
+    if(image_index > imgs.length - 1)
+        image_index = 0;
     change_img(image_index)
 }
 
 function img_minus()
 {
     image_index -= 1
+    if(image_index < 0)
+        image_index = imgs.length - 1;
     change_img(image_index)
 }
 
 function change_img(image_index)
 {
-    if(image_index > imgs.length - 1)
-        image_index = 0;
-    else if(image_index < 0)
-        image_index = imgs.length - 1;
     //let image_index = Math.floor(Math.random*imgs.length)
     HTMLelement("#curr_img>h2").innerHTML = `${imgs[image_index].name}`;
     HTMLelement("#curr_img>img").src = `${imgs[image_index].path}`;
